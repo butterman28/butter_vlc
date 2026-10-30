@@ -27,7 +27,7 @@ jobs:
           apt-get build-dep -y vlc
       
           # Install any extra tooling not covered by Build-Depends
-          apt-get install -y build-essential git wget curl
+          apt-get install -y build-essential git wget curl libxcb-xkb-dev
       - name: Bootstrap and Configure
         run: |
           ./bootstrap
