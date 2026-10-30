@@ -28,6 +28,14 @@ jobs:
       
           # Install any extra tooling not covered by Build-Depends
           apt-get install -y build-essential git wget curl libxcb-xkb-dev
+      - name: Install Qt6 Dependencies
+        run: |
+          apt-get install -y \
+            qt6-base-dev \
+            qt6-base-dev-tools \
+            qt6-declarative-dev \
+            qt6-declarative-dev-tools \
+            libqt6svg6-dev
       - name: Bootstrap and Configure
         run: |
           ./bootstrap
