@@ -57,7 +57,11 @@ jobs:
           ./bootstrap
           mkdir -p build && cd build
           ../configure --prefix=/usr --disable-update-check
-
+      - name: Provide VLC Revision File
+        run: |
+          # Create the missing revision file so the build doesn't need Git
+          mkdir -p src
+          echo "unknown" > src/revision.txt
       - name: Compile and Stage
         run: |
           cd build
