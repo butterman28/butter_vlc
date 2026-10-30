@@ -42,6 +42,16 @@ jobs:
             qt6-base-private-dev \
             qt6-declarative-private-dev \
             qml6-module-qttest
+      - name: Install Qt6 QML Runtime Modules
+        run: |
+          apt-get install -y \
+            qml6-module-qtqml-models \
+            qml6-module-qtqml-workerscript \
+            qml6-module-qtquick-layouts \
+            qml6-module-qtquick-window \
+            qml6-module-qtquick-controls \
+            qml6-module-qtquick-templates \
+            libqt6core5compat6-dev
       - name: Bootstrap and Configure
         run: |
           ./bootstrap
