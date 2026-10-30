@@ -17,19 +17,17 @@ jobs:
       - name: Install All VLC Build Dependencies
         run: |
           export DEBIAN_FRONTEND=noninteractive
-          
-          # 1. Enable source repositories (deb-src) in a robust way
-          #    This adds source entries for all existing binary repositories.
-          sed -i 's/^deb /deb-src /' /etc/apt/sources.list
+      
+          # Enable deb-src lines without removing the deb lines
+          sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
+      
           apt-get update
-          
-          # 2. Let apt install every Build-Depends listed in the VLC package
+      
+          # Install every Build-Depends declared by the vlc source package
           apt-get build-dep -y vlc
-          
-          # 3. Install essential build tools that may not be in Build-Depends
-          apt-get install -y \
-            build-essential git wget curl \
-            devscripts equivs  # helpful for fallback and packaging
+      
+          # Install any extra tooling not covered by Build-Depends
+          apt-get install -y build-essential git wget curl
       - name: Bootstrap and Configure
         run: |
           ./bootstrap
