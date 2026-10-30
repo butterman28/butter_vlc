@@ -36,6 +36,12 @@ jobs:
             qt6-declarative-dev \
             qt6-declarative-dev-tools \
             libqt6svg6-dev
+      - name: Install Qt6 Test and QML Dependencies
+        run: |
+          apt-get install -y \
+            qt6-base-private-dev \
+            qt6-declarative-private-dev \
+            qml6-module-qttest
       - name: Bootstrap and Configure
         run: |
           ./bootstrap
