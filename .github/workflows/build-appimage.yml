@@ -21,7 +21,7 @@ jobs:
             build-essential git meson cmake ninja-build autoconf automake libtool pkg-config \
             libvlccore-dev qtbase5-dev qttools5-dev-tools liblua5.3-dev \
             libgcrypt20-dev libdbus-1-dev libxml2-dev wget curl libavcodec-dev libavformat-dev libswscale-dev \
-            gettext flex
+            gettext flex bison
       - name: Bootstrap and Configure
         run: |
           ./bootstrap
